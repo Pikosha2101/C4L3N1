@@ -1,6 +1,5 @@
 package com.example.c4l3n1
 
-import android.R.attr.button
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,5 +36,13 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.Holder>(){
         holder.bind(
             items[position]
         )
+    }
+    fun createList(numItem: Int) {
+        val items1: ArrayList<RecyclerModel> = ArrayList<RecyclerModel>()
+        var lastContactId = 0
+        for (i in 1..numItem) {
+            items1.add(RecyclerModel("Student " + ++lastContactId, i <= numItem / 2))
+        }
+        items = items1
     }
 }

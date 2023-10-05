@@ -21,6 +21,7 @@ class RecyclerViewFragment : Fragment(R.layout.recycler_view_fragment) {
         _binding = RecyclerViewFragmentBinding.inflate(inflater, container, false)
         binding.recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.recyclerView.adapter = adapter
+        adapter.createList(30)
         return binding.root
     }
 
@@ -28,12 +29,9 @@ class RecyclerViewFragment : Fragment(R.layout.recycler_view_fragment) {
         super.onViewCreated(view, savedInstanceState)
 
     }
-    fun createList(numItem: Int): ArrayList<RecyclerModel>? {
-        val items: ArrayList<RecyclerModel> = ArrayList<RecyclerModel>()
-        var lastContactId = 0
-        for (i in 1..numItem) {
-            items.add(RecyclerModel("Student " + ++lastContactId, i <= numItem / 2))
-        }
-        return items
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }
