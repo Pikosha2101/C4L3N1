@@ -21,7 +21,7 @@ class RecyclerViewFragment : Fragment(R.layout.recycler_view_fragment) {
         _binding = RecyclerViewFragmentBinding.inflate(inflater, container, false)
         binding.recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.recyclerView.adapter = adapter
-        adapter.createList(30)
+        adapter.createList(20)
         return binding.root
     }
 
